@@ -1,40 +1,37 @@
-function calcular() {
-  let totalAntiguo = 0;
-  let totalNuevo = 0;
+function procesarNumeros() {
+    let sumaImpares = 0;
+    let sumaPares = 0;
+    let contadorPares = 0;
+    let numero;
 
-  while (true) {
-    let entrada = prompt("Ingrese el sueldo del empleado (o -1 para terminar):");
+    do {
+        numero = parseInt(prompt("Ingrese un número (0 para terminar):"));
 
-    if (entrada === null || entrada === "-1") {
-      break;
-    }
+        if (isNaN(numero)) {
+            alert("Debe ingresar un número válido.");
+            continue;
+        }
 
-    let sueldo = parseFloat(entrada);
+        if (numero !== 0) {
+            if (numero % 2 === 0) {
+                sumaPares += numero;
+                contadorPares++;
+            } else {
+                sumaImpares += numero;
+            }
+        }
 
-    if (isNaN(sueldo) || sueldo < 0) {
-      alert("Por favor, ingrese un número válido.");
-      continue;
-    }
+    } while (numero !== 0);
 
-    let aumento = 0;
-    if (sueldo < 1000) {
-      aumento = sueldo * 0.15;
+    let resultadoDiv = document.getElementById("resultado");
+    let mensaje = `<p>Suma de los números impares: <strong>${sumaImpares}</strong></p>`;
+
+    if (contadorPares > 0) {
+        let promedio = sumaPares / contadorPares;
+        mensaje += `<p>Promedio de los números pares: <strong>${promedio.toFixed(2)}</strong></p>`;
     } else {
-      aumento = sueldo * 0.12;
+        mensaje += `<p>No se ingresaron números pares.</p>`;
     }
 
-    let nuevoSueldo = sueldo + aumento;
-
-    alert("Sueldo actual: Q" + sueldo.toFixed(2) +
-          "\nAumento: Q" + aumento.toFixed(2) +
-          "\nNuevo sueldo: Q" + nuevoSueldo.toFixed(2));
-
-    totalAntiguo += sueldo;
-    totalNuevo += nuevoSueldo;
-  }
-
-  document.getElementById("totalAntiguo").innerText = 
-    "Suma total de sueldos antiguos: Q" + totalAntiguo.toFixed(2);
-  document.getElementById("totalNuevo").innerText = 
-    "Suma total de sueldos nuevos: Q" + totalNuevo.toFixed(2);
+    resultadoDiv.innerHTML = mensaje;
 }

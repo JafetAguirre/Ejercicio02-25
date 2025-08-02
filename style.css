@@ -1,20 +1,49 @@
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
 }
 
 h1 {
-  color: #333;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #444;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-#resultados {
-  font-size: 18px;
-  margin-top: 20px;
+button:hover {
+    background-color: #0b5ed7;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #222;
 }
